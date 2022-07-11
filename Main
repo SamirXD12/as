@@ -1,0 +1,33 @@
+local keys = {
+    "Free",
+    "Premium",
+    "Owner"
+}
+
+local counter = 1
+local keyCheck
+for i,v in pairs(keys) do
+    if counter == #keys then
+    --not whitelisted!
+    keys = ""
+    game.Players.LocalPlayer:Kick("Pls try again")
+    else
+        if v == _G.Version then
+            --Whitelisted!
+            print("Successfully!")
+            keyCheck = _G.Version
+            keys = ""
+        else
+            counter = counter +1
+        end
+    end
+end
+
+while true do
+    if _G.Version == keyCheck then
+        --Not spoofed
+    else
+        game.Players.LocalPlayer:Kick("Pls try again")
+    end
+    wait()
+end
